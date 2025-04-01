@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.TextField?>
+
+<fx:root fx:id="bedrijvenscherm" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="padding" stylesheets="@style.css" type="VBox" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/delaware_logo_klein.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label text="Bedrijven overzicht">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Region layoutX="70.0" layoutY="10.0" HBox.hgrow="ALWAYS" />
+            <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#bedrijfAanmaken" styleClass="btn_primary" stylesheets="@style.css" text="Bedrijf toevoegen" textAlignment="CENTER" textFill="WHITE">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="backToLoginBtn" mnemonicParsing="false" onAction="#handleBackToLogin" styleClass="btn_danger" text="Afmelden" textFill="WHITE">
+    			<padding>
+        			<javafx.geometry.Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
+    			</padding>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+			</Button>
+         </children>
+      </HBox>
+      <VBox spacing="5.0">
+        <HBox>
+            <Label text="Filter op:" />
+            <Region style="-fx-padding: 0 5 0 5;" /> 
+            <ChoiceBox fx:id="filterChoiceBox">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Naam" />
+                        <String fx:value="Adres" />
+                        <String fx:value="Sector" />
+                        <String fx:value="ContactGegevens" />
+                        <String fx:value="BTWnummer" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <Region style="-fx-padding: 0 5 0 5;" /> 
+            <Label text="Filter waarde:" />
+            <Region style="-fx-padding: 0 5 0 5;" /> 
+            <TextField fx:id="filterTextField" />
+        <Button fx:id="confirmFilterButton" layoutX="90.0" layoutY="28.0" mnemonicParsing="false" onAction="#handleConfirmFilter" styleClass="btn_primary" text="Filter" />
+    	</HBox>
+    	</VBox>
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <items>
+            <ListView fx:id="listBedrijven" prefHeight="200.0" prefWidth="200.0" />
+            <VBox fx:id="vboxBedrijf" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="logoView" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TextField fx:id="naamTxt" disable="true" minHeight="-Infinity" prefHeight="30.0" styleClass="txt_input" stylesheets="@style.css">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label styleClass="lbl_input" stylesheets="@style.css" text="Naam" />
+                              <TextField fx:id="sectorTxt" disable="true" minHeight="-Infinity" prefHeight="30.0" styleClass="txt_input" stylesheets="@style.css" />
+                              <Label styleClass="lbl_input" stylesheets="@style.css" text="Sector" />
+                              <TextField fx:id="adresTxt" disable="true" layoutX="10.0" layoutY="77.0" minHeight="-Infinity" prefHeight="30.0" styleClass="txt_input" stylesheets="@style.css" />
+                              <Label layoutX="10.0" layoutY="112.0" styleClass="lbl_input" stylesheets="@style.css" text="Adres" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <TextField fx:id="gegevensTxt" disable="true" minHeight="-Infinity" prefHeight="30.0" styleClass="txt_input" stylesheets="@style.css" />
+                              <Label styleClass="lbl_input" stylesheets="@style.css" text="Contactgegevens" />
+                              <TextField fx:id="btwTxt" disable="true" minHeight="-Infinity" prefHeight="30.0" styleClass="txt_input" stylesheets="@style.css" />
+                              <Label styleClass="lbl_input" stylesheets="@style.css" text="BTW nummer" />
+                              <HBox alignment="CENTER" prefHeight="30.0" styleClass="txt_input" stylesheets="@style.css">
+                                 <children>
+                                    <Label fx:id="lblLogo" text="Verander logo" HBox.hgrow="ALWAYS" />
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Button alignment="CENTER" minWidth="-Infinity" mnemonicParsing="false" onAction="#onLogoUpload" text="Upload Logo" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
+                                 </padding>
+                              </HBox>
+                              <Label styleClass="lbl_input" stylesheets="@style.css" text="Logo" />
+                           </children>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Button fx:id="btnActief" alignment="BOTTOM_LEFT" disable="true" mnemonicParsing="false" styleClass="lbl_succes" text="Actief">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="20.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btnUpdate" alignment="BOTTOM_LEFT" disable="true" mnemonicParsing="false" onAction="#updateBedrijf" styleClass="btn_primary" text="Bijwerken">
+                     <padding>
+                        <Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </VBox>
+         </items>
+      </SplitPane>
+   </children>
+   <opaqueInsets>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </opaqueInsets>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</fx:root>

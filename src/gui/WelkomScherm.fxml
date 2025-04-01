@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" styleClass="bodybg" stylesheets="@style.css" type="GridPane" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+  	<HBox alignment="CENTER" GridPane.columnIndex="1">
+    <children>
+      <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+          <Image url="@../assets/delaware_logo_groot.png" />
+        </image>
+      </ImageView>
+    </children>
+  </HBox>
+  
+     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" styleClass="login-form" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Welkom">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Text>
+            <Button fx:id="backToLoginBtn" mnemonicParsing="false" onAction="#handleBackToLogin" styleClass="btn_danger" text="Afmelden" textFill="WHITE">
+    		    <padding>
+        		    <javafx.geometry.Insets bottom="3.0" left="20.0" right="20.0" top="3.0" />
+                </padding>
+            </Button>
+            <HBox alignment="CENTER" spacing="10">
+               <children>
+                  <Button fx:id="btnBestellingen" onAction="#handleBestellingen" prefWidth="120.0" styleClass="btn_primary" text="Bestellingen" />
+                  <Button fx:id="btnKlanten" onAction="#handleKlanten" prefWidth="120.0" styleClass="btn_primary" text="Klanten" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</fx:root>

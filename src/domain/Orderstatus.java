@@ -1,0 +1,5 @@
+package domain;
+
+public enum Orderstatus {
+	VERWERKT, VERZONDEN, GEPLAATST, UITVOORLEVERING, GELEVERD, VOLTOOID;
+}
